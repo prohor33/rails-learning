@@ -7,12 +7,32 @@ class ArticlesController < ApplicationController
     end
     puts "run myrender"
     # myrender("test")
+    
+    @articles = Article.all
   end
+ 
   def create
-    # print "hey"
-    render plain: params[:article].inspect
+    # print "create new "
+    # render plain: params[:article].inspect # show {"title"=>"12", "text"=>"123"}
+    
+    @article = Article.new(article_params)
+    
+    @article.save
+    # redirect_to @article
+    redirect_to "http://localhost:3000/articles/new"
   end
+  
   def myrender(render_text)
     render plain: render_text
   end
+  
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  private
+  def article_params
+    params.require(:article).permit(:nickname, :message)
+  end
+
 end
