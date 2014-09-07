@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
       puts "#{i}"
     end
     puts "run myrender"
-    myrender("test")
+    # myrender("test")
   end
   def create
     # print "hey"
