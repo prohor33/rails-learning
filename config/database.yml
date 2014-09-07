@@ -1,18 +1,11 @@
-development:
-  adapter: postgresql
-  encoding: utf8
-  database: project_development
+default: &default
+  adapter: sqlite3
   pool: 5
-  username: 
-  password:
+  timeout: 5000
 
-test: &TEST
-  adapter: postgresql
-  encoding: utf8
-  database: project_test
-  pool: 5
-  username: 
-  password:
+development:
+  <<: *default
+  database: db/development.sqlite3
 
 production:
   adapter: postgresql
@@ -21,6 +14,3 @@ production:
   pool: 5
   username: 
   password:
-
-cucumber:
-  <<: *TEST
