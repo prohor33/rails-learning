@@ -1,7 +1,9 @@
 <h1>Gimme Collage Posts</h1>
 
 <% @post_gcs.each do |post_gc| %>
-	<p><%= post_gc.username %>:  <%= post_gc.img_url %> <%= post_gc.text %></p>
+	<p><%= post_gc.username %>:</p>
+	<img src=<%= post_gc.img_url %> alt="collage">
+	<pre><%= post_gc.text %></pre>
 <% end %>
 
 <%= form_for :post_gc, url: post_gcs_path do |f| %>
