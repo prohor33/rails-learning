@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907165522) do
+ActiveRecord::Schema.define(version: 20150111194739) do
 
   create_table "articles", force: true do |t|
     t.string   "nickname"
     t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "post_gcs", force: true do |t|
+    t.string   "username"
+    t.text     "img_url"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

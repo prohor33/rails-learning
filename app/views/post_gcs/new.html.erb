@@ -1,0 +1,20 @@
+<h1>Gimme Collage Posts</h1>
+
+<% @post_gcs.each do |post_gc| %>
+	<p><%= post_gc.username %>:  <%= post_gc.img_url %> <%= post_gc.text %></p>
+<% end %>
+
+<%= form_for :post_gc, url: post_gcs_path do |f| %>
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %>
+ 
+    <%= f.label :text %>
+    <%= f.text_area :text, :size => "30x1" %>
+
+    <%= f.submit :send %>
+  </p>
+<% end %>

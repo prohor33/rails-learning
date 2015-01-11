@@ -9,3 +9,4 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( articles.css )
 Rails.application.config.assets.precompile += %w( present.css )
+Rails.application.config.assets.precompile += %w( post_gcs.css )
