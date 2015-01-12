@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: MyString
-  img_url: MyText
+  nickname: MyString
+  image: MyText
+  image_preview: MyText
   text: MyText
 
 two:
-  username: MyString
-  img_url: MyText
+  nickname: MyString
+  image: MyText
+  image_preview: MyText
   text: MyText

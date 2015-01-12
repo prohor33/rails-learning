@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostGcsControllerTest < ActionController::TestCase
+class GcPostTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

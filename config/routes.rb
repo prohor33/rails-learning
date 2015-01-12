@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get 'present/init'
 
   resources :articles
-  resources :post_gcs
+  resources :gc_posts
   
   # root 'welcome#index'
     
