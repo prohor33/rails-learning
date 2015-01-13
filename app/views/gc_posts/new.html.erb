@@ -1,13 +1,15 @@
 <h1>Gimme Collage Posts</h1>
 
 <% @gc_posts.each do |gc_post| %>
-	<p>#<%= gc_post.id %></p>
-	<%= button_to "delete", gc_post_path(gc_post), method: :delete, data: {confirm: "Really delete the post?"}, :class => "myButton" %>
-	<p>author: <%= gc_post.nickname %></p>
-	<% if gc_post.image.blank? == false %>
-		<img src=<%= gc_post.image %> alt="collage">
-	<% end %>
-	<pre><%= gc_post.text %></pre>
+	<div class="post">
+		<p>#<%= gc_post.id %></p>
+		<%= button_to "delete", gc_post_path(gc_post), method: :delete, data: {confirm: "Really delete the post?"}, :class => "myButton" %>
+		<p>author: <%= gc_post.nickname %></p>
+		<% if gc_post.image.blank? == false %>
+			<img src=<%= gc_post.image %> alt="collage">
+		<% end %>
+		<pre><%= gc_post.text %></pre>
+	</div>
 <% end %>
 
 <hr class="style-three"></hr>
@@ -23,7 +25,7 @@
   <%= f.text_field(:image_preview, :class => "inputs", :placeholder => "image preview url") %>
   <br>
   </br>
-  <%= f.text_field(:text, :class => "inputs inputs_big", :placeholder => "text") %>
+  <%= f.text_area(:text, :class => "inputs inputs_big", :placeholder => "text") %>
   <p>
     <%= f.submit :send, :class => "myButton" %>
   </p>

@@ -19,9 +19,9 @@ inputs-moz-placeholder {
     width: 270px;
     padding: 15px 25px;
     // to display centered
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    // display: block;
+    // margin-left: auto;
+    // margin-right: auto;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -70,9 +70,9 @@ inputs-moz-placeholder {
   -webkit-border-radius:3px;
   border-radius:3px;
   border:1px solid #124d77;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
+  // display:block;
+  // margin-left: auto;
+  // margin-right: auto;
   cursor:pointer;
   color:#ffffff;
   font-family:arial;
@@ -102,4 +102,9 @@ hr.style-three {
     border: 0;
     border-bottom: 1px dashed #ccc;
     background: #999;
+}
+
+
+.post {
+    background-color:#EEEEEE;
 }
