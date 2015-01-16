@@ -5,7 +5,11 @@ class GcPostsController < ApplicationController
   end
   
   def create    
-    @gc_post = GcPost.new(gc_post_params)   
+    @gc_post = GcPost.new(gc_post_params)
+    @gc_post.image_w = FastImage.size(@gc_post.image)[0]
+    @gc_post.image_h = FastImage.size(@gc_post.image)[1]
+    @gc_post.image_preview_w = FastImage.size(@gc_post.image_preview)[0]
+    @gc_post.image_preview_h = FastImage.size(@gc_post.image_preview)[1]   
     @gc_post.save
     
     redirect_to "/gc_posts/new"
@@ -13,6 +17,7 @@ class GcPostsController < ApplicationController
   
   # for debug
   def show
+   
     respond_to do |format|
       # ... other formats here ...
       
@@ -20,16 +25,7 @@ class GcPostsController < ApplicationController
         # call http://localhost:3000/gc_posts/checkname.jsonr
         
         @gc_posts = GcPost.all
-        postlist = @gc_posts.each do |gc_post|
-           {
-            :nickname => gc_post.nickname,
-            :image => gc_post.image,
-            :image_preview => gc_post.image_preview,
-            :text => gc_post.text,
-            :id => gc_post.id
-          }
-        end
-        render :json => postlist.to_json
+        render :file => "gc_posts/show.json.erb", :content_type => 'application/json'
       end      
     end
   end
@@ -43,6 +39,7 @@ class GcPostsController < ApplicationController
   
   private
   def gc_post_params
-    params.require(:gc_post).permit(:nickname, :image, :image_preview, :text)
+    params.require(:gc_post).permit(:nickname, :image, :image_w, :image_h,
+     :image_preview, :image_preview_w, :image_preview_h, :text)
   end  
 end

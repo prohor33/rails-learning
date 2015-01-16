@@ -46,3 +46,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# FastImage finds the size or type of an image given its uri by fetching as little as needed
+gem 'fastimage'
