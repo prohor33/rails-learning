@@ -6,10 +6,27 @@ class GcPostsController < ApplicationController
   
   def create    
     @gc_post = GcPost.new(gc_post_params)
-    @gc_post.image_w = FastImage.size(@gc_post.image)[0]
-    @gc_post.image_h = FastImage.size(@gc_post.image)[1]
-    @gc_post.image_preview_w = FastImage.size(@gc_post.image_preview)[0]
-    @gc_post.image_preview_h = FastImage.size(@gc_post.image_preview)[1]   
+
+    size_tmp = FastImage.size(@gc_post.image)
+
+    size = [-1, -1]    
+    if (size_tmp != nil)
+      size = size_tmp
+    end
+    
+    @gc_post.image_w = size[0]
+    @gc_post.image_h = size[1]
+
+    size_tmp = FastImage.size(@gc_post.image_preview)
+
+    size = [-1, -1]
+    if (size_tmp != nil)
+      size = size_tmp
+    end
+
+    @gc_post.image_preview_w = size[0]
+    @gc_post.image_preview_h = size[1]
+
     @gc_post.save
     
     redirect_to "/gc_posts/new"
